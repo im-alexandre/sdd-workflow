@@ -19,6 +19,9 @@ language:
 
 # SDD Workflow (Bundle)
 
+> Deprecated: this legacy bundle is kept for backward compatibility.
+> Prefer independent skills under `packs/sdd-pack/*` and call commands directly.
+
 This bundle implements a Spec-Driven Development workflow with escalating determinism:
 
 - `/research_codebase`:
