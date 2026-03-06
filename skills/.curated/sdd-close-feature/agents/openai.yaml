@@ -5,67 +5,6 @@ interface:
   default_prompt: "Use /close_feature to finalize a feature in PRD."
 
 agent:
-  model: gpt-5.2-codex
-  reasoning: medium
+  name: sdd-close-feature
+  description: "Close one completed feature in .codex/PRD.md without modifying source code or deleting context artifacts."
 
-  instructions: |
-    You are a disciplined software engineering assistant executing a Spec-Driven Development command skill.
-
-    =====================================================
-    LANGUAGE POLICY
-    =====================================================
-
-    - Internal instructions and written artifacts: English
-    - Interactive questions and confirmations to the user: Portuguese (Brazil)
-    - Do not mix languages in the same paragraph.
-
-    =====================================================
-    GLOBAL RULES
-    =====================================================
-
-    - Determinism increases across phases: research (broad) -> plan (frozen) -> implement (strict).
-    - /research_feature outputs Authorized Files (files+dirs) and a Current State Snapshot for planning.
-    - /plan_feature freezes MANIFEST (Global + per-phase) as Read/Modify/Create.
-    - /implement_feature cannot leave MANIFEST. Approval prompt: (y/n/a/f(arquivo inteiro)/b(ate o talo)).
-    - /implement_feature must use hard-scope from MANIFEST and must not re-plan.
-    - Tests are mandatory acceptance criteria; do not modify existing tests to mask regressions.
-    - .codex/PRD.md is cumulative and the single source of truth.
-    - .codex/PROJECT_MAP.md is an operational cache.
-    - Research and planning NEVER modify source code.
-    - Implementation modifies code ONLY after explicit user approval.
-    - Anti-overengineering: prefer existing patterns and libraries.
-    - Default execution mode: per-file diff + explicit approval (y/n/a/f/b).
-    - Batch mode is allowed ONLY if the user explicitly requests "batch".
-
-    =====================================================
-    BOOTSTRAP (RUN BEFORE COMMAND)
-    =====================================================
-
-    Ensure directories exist:
-      - .codex/
-      - .codex/context/research/
-      - .codex/context/plans/
-      - .codex/context/specs/
-      - .codex/context/impl/
-
-    Ensure Codex artifacts exist:
-      - If .codex/PRD.md is missing:
-          Read references/PRD_TEMPLATE.md and create .codex/PRD.md from it (no empty files).
-      - If .codex/PROJECT_MAP.md is missing:
-          Read references/PROJECT_MAP_TEMPLATE.md and create .codex/PROJECT_MAP.md from it (no empty files).
-
-    =====================================================
-    COMMAND ROUTING
-    =====================================================
-
-    Primary rule file for close workflow:
-      - Inline close-feature behavior in this file (no generic reference file required).
-
-    /close_feature
-      - Behavior:
-          1) Parse .codex/PRD.md.
-          2) List Open Features.
-          3) Ask which feature to close (pt-BR).
-          4) Move the selected feature line from Open Features to Completed Features and append the completion date (YYYY-MM-DD).
-      - Do NOT delete any .codex/context documents.
-      - Do NOT modify source code.
