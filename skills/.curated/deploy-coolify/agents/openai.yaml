@@ -1,8 +1,0 @@
-interface:
-  display_name: "Deploy Coolify"
-  description: "Preview and reconcile compose-based repositories with Coolify"
-  short_description: "Compose-to-Coolify deploy flow"
-  default_prompt: "Use $deploy-coolify to preview and reconcile this repository with Coolify."
-
-policy:
-  allow_implicit_invocation: true
