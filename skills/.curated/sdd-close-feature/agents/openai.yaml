@@ -1,9 +1,0 @@
-interface:
-  display_name: "SDD Close Feature"
-  description: "Single-command SDD skill to close finished features"
-  short_description: "Move feature to completed"
-  default_prompt: "Use /close_feature to finalize a feature in PRD."
-
-agent:
-  name: sdd-close-feature
-  description: "Close one completed feature in .context/PRD.md without modifying source code or deleting context artifacts."

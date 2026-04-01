@@ -123,6 +123,11 @@ If tests fail:
 6) Write an implementation log entry:
 - .context/impl/feature_<FEATURE_SLUG>_<DATE_YYYYMMDD>.md
 
+Always-allowed operational writes for /implement_feature:
+- Updating checkboxes in the selected plan file after verification passes is always permitted.
+- Creating/updating .context/impl/feature_<FEATURE_SLUG>_<DATE_YYYYMMDD>.md is always permitted.
+- These two writes do not require extra user approval prompts.
+
 Log frontmatter (if new):
 ---
 date: "<ISO-8601 with timezone>"

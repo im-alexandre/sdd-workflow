@@ -1,9 +1,0 @@
-interface:
-  display_name: "SDD Research Feature"
-  description: "Single-command SDD skill for feature research"
-  short_description: "Read-only feature discovery"
-  default_prompt: "Use /research_feature to run contextual feature research."
-
-agent:
-  name: sdd-research-feature
-  description: "Run read-only SDD feature research, initialize missing context artifacts, and save the result under .context/research."

@@ -1,0 +1,9 @@
+interface:
+  display_name: "SDD Workflow"
+  description: "Unified multi-command SDD workflow package"
+  short_description: "Research, plan, implement, and close"
+  default_prompt: "Use one of: /research_codebase, /research_feature, /plan_feature, /implement_feature, /close_feature."
+
+agent:
+  name: sdd-workflow
+  description: "Run the unified SDD workflow with strict phase semantics: research (read-only), planning (frozen MANIFEST), implementation (MANIFEST-bound with verification), and feature closure in PRD."
